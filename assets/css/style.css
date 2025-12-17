@@ -276,7 +276,7 @@ strong {
     height: 80vh; 
     min-height: 500px;
     /* IMAGEM INSERIDA AQUI */
-    background-image: url('/assets/img/foto_paineis_recarga.webp'); 
+    background-image: url('../img/foto_paineis_recarga.webp'); 
     background-size: cover;
     background-position: center center;
     display: flex;
@@ -291,7 +291,7 @@ strong {
     height: 40vh; /* Altura reduzida para a página secundária */
     min-height: 300px;
     /* IMAGEM INSERIDA AQUI */
-    background-image: url('/assets/img/desktop.png'); 
+    background-image: url('../img/desktop.png'); 
     background-size: cover;
     background-position: center center;
     display: flex;
@@ -578,15 +578,15 @@ strong {
 
 /* IMAGENS DE FUNDO DOS CALLOUTS */
 .callout-pdi {
-    background-image: url('/assets/img/aplicativos_recarga.avif'); 
+    background-image: url('../img/aplicativos_recarga.avif'); 
 }
 
 .callout-tds {
-    background-image: url('/assets/img/adolescente_programando.webp'); 
+    background-image: url('../img/adolescente_programando.webp'); 
 }
 
 .callout-sustentabilidade {
-    background-image: url('/assets/img/futuro.jpg'); 
+    background-image: url('../img/futuro.jpg'); 
 }
 /* FIM IMAGENS DE FUNDO DOS CALLOUTS */
 
