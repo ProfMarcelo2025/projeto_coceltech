@@ -1,0 +1,1106 @@
+/* ===================================
+   COCEL - Eletroposto Solar & Núcleo de Inovação
+   Template adaptado com tema verde sustentável
+   =================================== */
+
+/* Reset e Variáveis */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Cores principais - Verde sustentável */
+    --primary-color: #10b981; /* Verde mais vibrante e moderno (Emerald 500) */
+    --primary-light: #34d399; /* Verde claro mais suave (Emerald 400) */
+    --primary-dark: #047857; /* Verde escuro mais profundo (Emerald 700) */
+    --accent-color: #86efac;
+    
+    /* Cores neutras */
+    --bg-color: #f8faf9;
+    --white: #ffffff;
+    --text-dark: #1f2937; /* Ajustado para melhor contraste (AAA) */
+    --text-muted: #6b7280;
+    --border-color: #e5e7eb;
+    
+    /* Sombras e efeitos */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+    
+    /* Transições */
+    --transition-base: 0.3s ease-in-out;
+    
+    /* Espaçamentos padronizados */
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 6rem;
+}
+
+/* Base */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--bg-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.section {
+    padding: var(--spacing-xl) 0;
+}
+
+.bg-light {
+    background-color: var(--white);
+}
+
+.bg-dark {
+    background-color: var(--text-dark);
+}
+
+.centered-content {
+    text-align: center;
+}
+
+.text-white {
+    color: var(--white) !important;
+}
+
+.text-muted {
+    color: var(--text-muted) !important;
+}
+
+.text-muted-light {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* ===================================
+   1. TIPOGRAFIA E ELEMENTOS BASE
+   =================================== */
+
+h1, h2, h3, h4 {
+    color: var(--text-dark);
+    line-height: 1.1;
+    font-weight: 700;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    margin-bottom: var(--spacing-lg);
+}
+
+a {
+    color: var(--primary-dark);
+    text-decoration: none;
+    transition: var(--transition-base);
+}
+
+a:hover {
+    color: var(--primary-light);
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition-base);
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+    color: var(--white);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-light);
+    color: var(--white);
+    border-color: var(--primary-light);
+}
+
+/* Botão de destaque no Header (viabilidade.html) */
+.btn-header {
+    margin-left: var(--spacing-md);
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-color);
+    color: var(--text-dark);
+}
+
+.btn-header:hover {
+    background-color: var(--border-color);
+    color: var(--primary-dark);
+}
+
+/* --- ESTILO GLOBAL DE DESTAQUE (STRONG) --- */
+
+strong {
+    font-weight: 800; /* Força um negrito mais "gordo" (Extra Bold) */
+    color: var(--text-dark); /* Garante que seja um preto bem forte */
+}
+
+/* Opcional: Se quiser que o negrito seja VERDE (marca), use este: */
+strong {
+    font-weight: 800;
+    color: var(--primary-color); 
+}
+
+
+/* Ajuste específico para áreas de fundo ESCURO (como o Footer ou Hero) */
+.bg-dark strong, 
+.footer strong,
+.section-title strong {
+    color: var(--white); /* No fundo escuro, o branco puro destaca mais */
+    font-weight: 700;
+    text-shadow: 0px 0px 10px rgba(255,255,255,0.3); /* Um brilho sutil para "saltar" */
+}
+.negrito-branco{
+    color: var(--white); /* No fundo escuro, o branco puro destaca mais */
+    font-weight: 700;
+    text-shadow: 0px 0px 10px rgba(255,255,255,0.3); /* Um brilho sutil para "saltar" */
+}
+
+/* ===================================
+   2. HEADER E NAVEGAÇÃO
+   =================================== */
+
+.header {
+    background-color: var(--white);
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+/* FIX UX: Mudar background e sombra ao rolar (Adicionado) */
+.header.scrolled {
+    background-color: var(--white);
+    box-shadow: var(--shadow-md);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem var(--spacing-md);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espaço entre os logos */
+}
+
+.logo {
+    height: 70px; /* Altura padrão para telas grandes */
+}
+
+.logo_pref {
+    height: 90px; /* Logo da prefeitura ligeiramente maior, se necessário */
+}
+
+.nav a {
+    margin-left: 1.5rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    padding: 5px 0; /* Padding vertical para clique fácil */
+    position: relative;
+}
+
+.nav a:hover, .nav a.active {
+    color: var(--primary-dark);
+}
+
+/* UX: Indicador visual do link ativo */
+.nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-dark);
+    transform: translateY(5px);
+    transition: var(--transition-base);
+}
+
+.mobile-menu-btn {
+    display: none; /* Esconde em desktop */
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* ===================================
+   3. HERO SECTION (COM IMAGENS)
+   =================================== */
+.hero {
+    height: 80vh; 
+    min-height: 500px;
+    /* IMAGEM INSERIDA AQUI */
+    background-image: url('/assets/img/foto_paineis_recarga.webp'); 
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-small {
+    height: 40vh; /* Altura reduzida para a página secundária */
+    min-height: 300px;
+    /* IMAGEM INSERIDA AQUI */
+    background-image: url('/assets/img/desktop.png'); 
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Contraste forte */
+    z-index: 1;
+}
+
+.hero .container, .hero-small .container {
+    z-index: 2;
+    position: relative;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 3rem;
+    font-weight: 300;
+}
+
+.hero-actions .btn {
+    margin: 0 0.5rem;
+}
+
+.hero h1, .hero p {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+} 
+
+/* ===================================
+   4. LAYOUT GRID e CARDS
+   =================================== */
+
+.diferenciais-grid, .modules-grid, .intangibles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: var(--spacing-lg);
+}
+
+.diferencial-card, .module-card, .intangible-card {
+    background-color: var(--white);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+    transition: var(--transition-base);
+    border-top: 4px solid var(--primary-color);
+}
+
+.diferencial-card:hover, .module-card:hover, .intangible-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-5px);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+/* --- ESTILO PARA O GRID DE MÓDULOS --- */
+
+/* Garante que o container alinhe os cards com a mesma altura */
+.modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    align-items: stretch; /* Fundamental: estica todos os cards para a mesma altura da linha */
+}
+
+/* Estrutura do Card para organizar o conteúdo verticalmente */
+.module-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    /* FLEXBOX: O segredo para alinhar o conteúdo interno */
+    display: flex;
+    flex-direction: column; 
+    height: 100%; /* Garante que o card ocupe toda a altura disponibilizada pelo grid */
+}
+
+/* Título e Texto: Garante que o texto ocupe o espaço necessário */
+.module-card p {
+    flex-grow: 1; /* Faz o texto ocupar o espaço livre, empurrando a imagem para o final */
+    margin-bottom: 1.5rem;
+}
+
+/* Estilo da Imagem inserida */
+.module-img {
+    width: 100%;           /* Largura total do container */
+    height: 200px;         /* ALTURA FIXA: Isso garante que todas as fotos tenham o mesmo tamanho vertical */
+    object-fit: cover;     /* Cobre a área sem distorcer a foto */
+    border-radius: 8px;    /* Cantos arredondados */
+    margin-top: auto;      /* Garante que a imagem fique ancorada no fundo do conteúdo flexível */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* ===================================
+   5. INTEGRAÇÃO E REGULATÓRIO
+   =================================== */
+
+.regulatory-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    background-color: var(--bg-color);
+    padding: var(--spacing-md);
+    border-radius: 10px;
+    box-shadow: var(--shadow-sm);
+}
+
+.regulatory-item {
+    flex: 1;
+    text-align: center;
+}
+
+.regulatory-item h3 {
+    color: var(--primary-dark);
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.reg-divider {
+    width: 1px;
+    height: 100px;
+    background-color: var(--border-color);
+}
+
+/* ===================================
+   6. CRONOGRAMA (Timeline)
+   =================================== */
+
+.timeline-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.timeline-container::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: var(--border-color);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -17px;
+    background-color: var(--white);
+    border: 4px solid var(--primary-color);
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-left {
+    left: 0;
+}
+
+.timeline-right {
+    left: 50%;
+}
+
+.timeline-right::after {
+    left: -16px;
+}
+
+.timeline-content {
+    padding: 20px 30px;
+    background-color: var(--white);
+    position: relative;
+    border-radius: 6px;
+    box-shadow: var(--shadow-sm);
+    border-left: 5px solid var(--primary-color);
+}
+
+.timeline-content h4 {
+    color: var(--primary-dark);
+    margin-bottom: 0.5rem;
+}
+
+/* ===================================
+   7. ANÁLISE (KPIs e Riscos)
+   =================================== */
+
+.kpi-grid, .risco-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.kpi-card, .risco-card {
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+    border-bottom: 4px solid var(--primary-color);
+}
+
+.risco-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas para o grid de Riscos */
+    gap: 2rem;
+}
+.risco-grid .risco-card {
+    border-bottom: 4px solid #f87171; /* Vermelho suave para riscos */
+}
+
+.kpi-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    display: block;
+}
+
+.kpi-label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.risco-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #b91c1c;
+    margin-bottom: 0.5rem;
+}
+
+/* ===================================
+   8. VISUAL CALLOUTS E CONCRETUDE
+   =================================== */
+
+.visual-callout {
+    padding: var(--spacing-xl) 0;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    color: var(--white);
+    text-align: center;
+    background-attachment: fixed; 
+}
+
+/* IMAGENS DE FUNDO DOS CALLOUTS */
+.callout-pdi {
+    background-image: url('/assets/img/aplicativos_recarga.avif'); 
+}
+
+.callout-tds {
+    background-image: url('/assets/img/adolescente_programando.webp'); 
+}
+
+.callout-sustentabilidade {
+    background-image: url('/assets/img/futuro.jpg'); 
+}
+/* FIM IMAGENS DE FUNDO DOS CALLOUTS */
+
+
+.visual-callout::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(4, 120, 87, 0.8);
+    z-index: 1;
+}
+
+.visual-callout-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.visual-callout-content h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--white);
+}
+
+.visual-callout-content p {
+    font-size: 1.25rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Realization Cards (Cards de Concretude) */
+.realization-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin: var(--spacing-lg) auto var(--spacing-md);
+    max-width: 1000px;
+}
+
+.realization-card {
+    background-color: var(--primary-dark);
+    color: var(--white);
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition-base);
+    text-align: left;
+    border-left: 8px solid var(--accent-color);
+}
+
+.realization-card i.icon {
+    font-size: 3rem;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.realization-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: var(--white);
+    line-height: 1.2;
+}
+
+.realization-description {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* ===================================
+   9. VIABILIDADE (TCO e Intangíveis)
+   =================================== */
+
+.tco-container {
+    overflow-x: auto; /* CRÍTICO: Garante responsividade da tabela TCO */
+    box-shadow: var(--shadow-md);
+    border-radius: 8px;
+    margin-top: var(--spacing-lg);
+}
+
+.tco-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px; /* Garante que a tabela tenha espaço no mobile e o scroll funcione */
+    background-color: var(--white);
+}
+
+.tco-table th {
+    background-color: var(--primary-dark);
+    color: var(--white);
+    padding: 1.25rem 1.5rem;
+    text-align: left;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.75px;
+}
+
+.tco-table td {
+    padding: 1.25rem 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    line-height: 1.6;
+    color: var(--text-dark);
+}
+
+.tco-table tr:last-child td {
+    border-bottom: none;
+}
+
+.tco-table td strong {
+    color: var(--text-dark);
+    display: block;
+    font-size: 1.05rem;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+/* Coluna Total (Destaque) */
+.tco-total td {
+    background-color: var(--accent-color);
+    color: var(--primary-dark) !important;
+    font-size: 1.25rem;
+    font-weight: 700;
+    border-top: 3px solid var(--primary-dark);
+}
+
+/* Coluna 3 (EV - o "benefício") */
+.tco-table td:nth-child(3) {
+    color: var(--primary-dark);
+    font-weight: 700;
+}
+
+/* --- GRID DE VIABILIDADE --- */
+.viabilidade-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsivo automático */
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.viabilidade-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0; /* Borda sutil */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+}
+
+.viabilidade-card:hover {
+    transform: translateY(-5px); /* Efeito de levitar */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    border-color: var(--primary-color); /* Borda fica verde no hover */
+}
+
+/* Ícone dentro do card */
+.viabilidade-card .icon-box {
+    width: 60px;
+    height: 60px;
+    background: rgba(33, 150, 83, 0.1); /* Verde bem clarinho */
+    color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.viabilidade-card h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.viabilidade-card p {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* --- CTA FINAL DA VIABILIDADE (Ajustado) --- */
+
+.cta-wrapper {
+    margin-top: 3rem; /* Reduzido de 5rem para 3rem (mais próximo) */
+    padding-bottom: 2rem;
+    display: flex;
+    flex-direction: column; /* Empilha frase em cima do botão */
+    align-items: center;    /* Centraliza tudo horizontalmente */
+    justify-content: center;
+}
+
+.final-quote {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--text-dark);
+    text-align: center;      /* Garante que o texto fique no meio */
+    margin-bottom: 2rem;     /* Espaço entre a frase e o botão */
+    line-height: 1.4;
+    max-width: 800px;        /* Evita que a frase fique muito larga em telas grandes */
+}
+
+/* Sombra e Efeito do Botão */
+.custom-shadow {
+    box-shadow: 0 10px 25px rgba(33, 150, 83, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.custom-shadow:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(33, 150, 83, 0.6);
+}
+
+/* Ajuste Mobile */
+@media (max-width: 768px) {
+    .final-quote {
+        font-size: 1.25rem;
+        padding: 0 1rem; /* Margem lateral para não colar na borda do celular */
+    }
+    .cta-wrapper {
+        margin-top: 2.5rem;
+    }
+}
+
+
+/* --- ESTILO FINANCEIRO (Viabilidade) --- */
+
+/* Cards de KPI */
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    text-align: center;
+}
+
+.kpi-card {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.kpi-label { display: block; font-size: 0.9rem; color: #666; margin-bottom: 0.5rem; }
+.kpi-value { display: block; font-size: 1.8rem; font-weight: 800; color: var(--text-dark); margin-bottom: 0.25rem; }
+.text-primary { color: var(--primary-color) !important; } /* Deixa o valor total verde */
+.kpi-sub { display: block; font-size: 0.75rem; color: #999; }
+
+/* Tabela Financeira */
+.finance-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.finance-table th {
+    background: var(--text-dark);
+    color: #fff;
+    padding: 1rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.finance-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+    color: var(--text-dark);
+}
+
+.finance-table tr:last-child td { border-bottom: none; }
+.table-total { background-color: #f8f9fa; font-weight: 700; }
+.text-right { text-align: right; }
+.text-center { text-align: center; }
+/* ===================================
+   10. FOOTER E CONTATO
+   =================================== */
+
+/* --- ESTILO DE CONTATO - VERSÃO COMPACTA --- */
+
+.contact-info-box {
+    background-color: var(--white);
+    color: var(--text-dark);
+    padding: 1.5rem;         /* REDUZIDO: Menos "borda" interna */
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+    text-align: center;
+    max-width: 450px;        /* Levemente mais estreito */
+    margin: 0 auto;
+    border: 1px solid var(--border-color);
+}
+
+/* NOME */
+.contact-name {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary-dark);
+    margin-bottom: 0;
+    line-height: 1.2;
+}
+
+/* CARGO e LINHA DIVISÓRIA */
+.contact-role {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    font-weight: 600;
+    
+    /* ESPAÇOS REDUZIDOS AQUI: */
+    margin-top: 0;
+    margin-bottom: 1rem;     /* De 2rem para 1rem (Aproxima do contato) */
+    padding-bottom: 0.75rem; /* De 1.5rem para 0.75rem (Aproxima da linha) */
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* LINKS E TEXTOS DE CONTATO */
+.contact-info-box p:not(.contact-name):not(.contact-role) {
+    font-size: 1.1rem;
+    margin-bottom: 0.35rem;  /* REDUZIDO: Aproxima Email de Telefone */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.contact-info-box a {
+    color: var(--text-dark);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info-box a:hover {
+    color: var(--primary-color);
+}
+
+
+/* --- ESTILO DO FOOTER MINIMALISTA --- */
+
+.footer {
+    background-color: var(--text-dark); /* Fundo escuro igual ao contato */
+    color: var(--white);
+    padding: 2rem 0;        /* Padding menor, já que tem menos conteúdo */
+    margin-top: 0;          /* IMPORTANTE: Mantém colado na seção anterior (sem faixa branca) */
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Linha divisória sutil */
+    font-size: 0.9rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center;
+    text-align: center;      /* Garante que o texto fique centralizado */
+}
+
+.footer-text {
+    max-width: 600px;        /* Evita que o texto fique muito largo em telas grandes */
+    margin: 0 auto;
+}
+
+.footer-subtext {
+    color: #9ca3af;          /* Cinza claro para dar hierarquia */
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+}
+
+/* ===================================
+   11. RESPONSIVIDADE (Mobile-First)
+   =================================== */
+
+@media (max-width: 1024px) {
+    /* Ajustes Gerais */
+    .section-title {
+        font-size: 2rem;
+    }
+    .hero-title {
+        font-size: 3rem;
+    }
+    .hero-subtitle {
+        font-size: 1.3rem;
+    }
+
+    /* Grids */
+    .diferenciais-grid, .modules-grid, .intangibles-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .realization-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .risco-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 768px) {
+    /* Header e Navegação */
+    .header {
+        padding: 0;
+    }
+    .header-content {
+        padding: 0.75rem var(--spacing-md);
+    }
+    .nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background-color: var(--white);
+        box-shadow: var(--shadow-md);
+        padding: var(--spacing-sm) 0;
+        z-index: 999;
+    }
+    .nav.active {
+        display: flex;
+    }
+    .nav a {
+        margin: 0;
+        padding: 0.75rem var(--spacing-md);
+        border-bottom: 1px solid var(--border-color);
+        width: 100%;
+        text-align: left;
+    }
+    .nav a:last-child {
+        border-bottom: none;
+    }
+    /* Estilo do hamburguer/X */
+    .mobile-menu-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 25px;
+        height: 20px;
+        padding: 0;
+        box-sizing: content-box;
+    }
+    .mobile-menu-btn span {
+        display: block;
+        height: 2px;
+        width: 100%;
+        background: var(--text-dark);
+        border-radius: 9px;
+        transition: all 0.3s linear;
+        transform-origin: 1px;
+    }
+    
+    /* Hero */
+    .hero-title {
+        font-size: 2.25rem;
+    }
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    /* Grids */
+    .diferenciais-grid, .modules-grid, .intangibles-grid, .kpi-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Cronograma */
+    .timeline-container::after {
+        left: 31px;
+    }
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+    .timeline-item::before {
+        left: 60px;
+        border: medium solid var(--primary-color);
+        border-width: 10px 10px 10px 0;
+        border-color: transparent var(--primary-color) transparent transparent;
+    }
+    .timeline-left::after, .timeline-right::after {
+        left: 15px;
+    }
+    .timeline-right {
+        left: 0%;
+    }
+    .timeline-right .timeline-content {
+        border-left: 5px solid var(--primary-color);
+        border-right: none;
+    }
+
+    /* Integração */
+    .regulatory-box {
+        flex-direction: column;
+    }
+    .reg-divider {
+        width: 100px;
+        height: 1px;
+    }
+
+    /* Footer */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+}

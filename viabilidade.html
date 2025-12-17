@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise TCO e KPIs — Projeto Eletroposto Solar COCEL</title>
+    <meta name="description"
+        content="Análise detalhada de Custo Total de Propriedade (TCO) e retorno estratégico de fundos P&D/PEE para o Projeto Eletroposto Solar.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo-container">
+                <img src="assets/img/logo_cocel.png" alt="COCEL" class="logo">
+                <img src="assets/img/logo_prefeitura.png" alt="Prefeitura" class="logo logo_pref">
+            </div>
+            <nav class="nav" id="nav">
+                <a href="index.html" class="nav-link btn-header">← Voltar ao Projeto</a>
+                <a href="#tco" class="nav-link">Análise TCO</a>
+                <a href="#intangiveis" class="nav-link">Benefícios Intangíveis</a>
+                <a href="#financeiro-final" class="nav-link">Indicadores & Investimento</a>
+            </nav>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+
+        <section id="hero-viabilidade" class="hero-small">
+            <div class="hero-overlay"></div>
+            <div class="container centered-content">
+                <h1 class="hero-title">Viabilidade Econômico-Estratégica</h1>
+                <p class="hero-subtitle">Detalhamento dos benefícios financeiros e alavancagem de fundos regulatórios
+                    (P&D/PEE).</p>
+            </div>
+        </section>
+
+        <section id="tco" class="section">
+            <div class="container">
+                <h2 class="section-title">Análise de Custo Total de Propriedade (TCO)</h2>
+                <p class="section-subtitle">Comparativo projetado para 5 anos: Frota a Combustão (VUC) vs. Frota
+                    Elétrica (EV) com Recarga Solar Própria.</p>
+
+                <div class="tco-container">
+                    <!-- <table class="tco-table">
+                        <thead>
+                            <tr>
+                                <th>Parâmetro Financeiro</th>
+                                <th>Cenário 1: Frota VUC (Combustão)</th>
+                                <th>Cenário 2: Frota EV (Eletroposto Solar)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <strong>Custo Inicial (Aquisição)</strong>
+                                    <p class="text-muted">Valor de compra do veículo (recursos PEE/P&D excluem o EV).
+                                    </p>
+                                </td>
+                                <td>R$ 150.000,00 / Unid.</td>
+                                <td>R$ 180.000,00 / Unid.</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Custo de Combustível/Energia (Anual)</strong>
+                                    <p class="text-muted">Impacto direto da substituição da matriz.</p>
+                                </td>
+                                <td>R$ 15.000,00 / Unid. (Gasolina/Diesel)</td>
+                                <td>R$ 0,00 / Unid. (Autoconsumo GD)</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Custo de Manutenção (Anual)</strong>
+                                    <p class="text-muted">Manutenção simplificada do EV, menor número de peças.</p>
+                                </td>
+                                <td>R$ 3.500,00 / Unid.</td>
+                                <td>R$ 1.000,00 / Unid.</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Residual (Revenda após 5 anos)</strong>
+                                    <p class="text-muted">Estimativa do valor residual (maior para EV devido à GD
+                                        local).</p>
+                                </td>
+                                <td>-25% do Valor Inicial</td>
+                                <td>-15% do Valor Inicial</td>
+                            </tr>
+                            <tr class="tco-total">
+                                <td>
+                                    <strong>CUSTO OPERACIONAL TOTAL EM 5 ANOS</strong>
+                                </td>
+                                <td>R$ 228.000,00</td>
+                                <td>R$ 195.000,00</td>
+                            </tr>
+                        </tbody>
+                    </table> -->
+                    <table class="tco-table">
+                        <thead>
+                            <tr>
+                                <th>Parâmetro Financeiro (5 Anos)</th>
+                                <th>Cenário 1: Frota Combustão (2 VUCs)</th>
+                                <th>Cenário 2: Frota Elétrica (2 EVs)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <strong>CAPEX Inicial (Aquisição)</strong>
+                                    <p class="text-muted">Investimento na compra dos ativos.</p>
+                                </td>
+                                <td><span id="tco-vuc-capex">...</span></td>
+                                <td><span id="tco-ev-capex">...</span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Combustível vs. Energia (5 Anos)</strong>
+                                    <p class="text-muted">Custo acumulado de operação (OPEX).</p>
+                                </td>
+                                <td><span id="tco-vuc-fuel">...</span> <br><small>(Diesel/Gasolina)</small></td>
+                                <td><span id="tco-ev-fuel">...</span> <br><small>(Solar/Geração Distribuída)</small>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Manutenção (5 Anos)</strong>
+                                    <p class="text-muted">Preventiva e Corretiva Acumulada.</p>
+                                </td>
+                                <td><span id="tco-vuc-maint">...</span></td>
+                                <td><span id="tco-ev-maint">...</span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Valor Residual (Revenda)</strong>
+                                    <p class="text-muted">Valor recuperado ao final (abate o custo).</p>
+                                </td>
+                                <td style="color: #d32f2f;"><span id="tco-vuc-residual">...</span></td>
+                                <td style="color: var(--primary-color);"><span id="tco-ev-residual">...</span></td>
+                            </tr>
+                            <tr class="tco-total">
+                                <td>
+                                    <strong>CUSTO TOTAL (TCO) 5 ANOS</strong>
+                                </td>
+                                <td><span id="tco-vuc-total">...</span></td>
+                                <td><span id="tco-ev-total">...</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="centered-content" style="margin-top: 3rem;">
+                        <h3 class="section-subtitle" style="font-weight: 700; color: var(--primary-dark);">Conclusão do
+                            TCO:</h3>
+                        <p class="lead">A simulação demonstra uma economia operacional direta de <strong
+                                id="tco-economia-conclusao">...</strong> nos cofres da concessionária ao optar pelo
+                            modelo elétrico.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="intangiveis" class="section bg-light">
+            <div class="container">
+                <h2 class="section-title">Retorno Intangível e Social (ESG)</h2>
+                <p class="section-subtitle">O valor que transcende o cálculo de TCO e gera impacto estratégico para a
+                    COCEL e para a cidade de Campo Largo.</p>
+
+                <div class="intangibles-grid">
+                    <div class="intangible-card" data-delay="0.1">
+                        <h4>Propriedade Intelectual (PI)</h4>
+                        <p>O desenvolvimento do software CPO (Charge Point Operator) utilizando fundos P&D gera um ativo
+                            de PI para a distribuidora, passível de comercialização ou reuso em projetos futuros.</p>
+                    </div>
+                    <div class="intangible-card" data-delay="0.3">
+                        <h4>Capital Humano (TDS)</h4>
+                        <p>Capacitação prática e certificação de mais de uma dezena de alunos no curso Técnico em Desenvolvimento
+                            de Sistemas, formando profissionais alinhados com a demanda do Setor Elétrico 4.0 (IoT,
+                            Software de Gestão).</p>
+                    </div>
+                    <div class="intangible-card" data-delay="0.5">
+                        <h4>Compromisso ESG</h4>
+                        <p>Redução das emissões de carbono da frota pública e contribuição direta para os Objetivos de
+                            Desenvolvimento Sustentável (ODS) 7 (Energia Limpa), 9 (Inovação) e 11 (Cidades
+                            Sustentáveis).</p>
+                    </div>
+                </div>
+
+                <div class="centered-content mt-4">
+                    <p class="text-muted">Este conjunto de dados confirma que o projeto é não apenas viável
+                        financeiramente (TCO), mas essencialmente estratégico para o cumprimento de metas regulatórias e
+                        de sustentabilidade.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="viabilidade-impacto">
+            <div class="container">
+
+                <div class="text-center mb-5">
+                    <h2 class="section-title">Viabilidade & Impacto Estratégico</h2>
+                    <p class="section-subtitle">
+                        Por que este projeto é a decisão certa? Transformamos custos obrigatórios em
+                        <strong>legado tecnológico e educacional</strong>.
+                    </p>
+                </div>
+
+                <div class="viabilidade-grid">
+                    <div class="viabilidade-card">
+                        <div class="icon-box">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                            </svg>
+                        </div>
+                        <h4>Eficiência de Recursos</h4>
+                        <p>
+                            Utilização inteligente de fundos regulatórios (PEE/P&D ANEEL), convertendo verbas que seriam
+                            recolhidas ou tributadas em <strong>investimento local</strong> tangível para Campo Largo.
+                        </p>
+                    </div>
+
+                    <div class="viabilidade-card">
+                        <div class="icon-box">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                            </svg>
+                        </div>
+                        <h4>Capital Humano (TDS)</h4>
+                        <p>
+                            Um ciclo de <strong>30 meses</strong> que garante a formação completa de uma turma de
+                            Desenvolvimento de Sistemas, entregando à sociedade não só o software, mas profissionais
+                            qualificados.
+                        </p>
+                    </div>
+
+                    <div class="viabilidade-card">
+                        <div class="icon-box">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h4>Liderança ESG</h4>
+                        <p>
+                            Posiciona a COCEL e a Prefeitura na vanguarda das <strong>Smart Cities</strong>,
+                            demonstrando compromisso real com a descarbonização e inovação tecnológica pública.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="finance-section mt-5" id="financeiro-final">
+
+                    <h3 class="text-center mb-4" style="color: var(--primary-dark); font-weight: 700;">
+                        Raio-X do Investimento (CAPEX & Retorno)
+                    </h3>
+
+                    <div class="kpi-grid mb-5">
+
+                        <div class="kpi-card" data-delay="0.1">
+                            <span class="kpi-label">Investimento Total</span>
+                            <span class="kpi-value text-primary" id="kpi-investimento-total">...</span>
+                            <span class="kpi-sub">Fundo P&D ANEEL + PEE</span>
+                        </div>
+
+                        <div class="kpi-card" data-delay="0.2">
+                            <span class="kpi-label">Payback Simples (Est.)</span>
+                            <span class="kpi-value" id="kpi-payback">...</span>
+                            <span class="kpi-sub">Retorno sobre o Investimento</span>
+                        </div>
+
+                        <div class="kpi-card" data-delay="0.3">
+                            <span class="kpi-label">Economia Anual (OPEX)</span>
+                            <span class="kpi-value" id="kpi-economia-anual">...</span>
+                            <span class="kpi-sub">Combustível + Manutenção</span>
+                        </div>
+
+                        <div class="kpi-card" data-delay="0.4">
+                            <span class="kpi-label">Maturidade Tecnológica</span>
+                            <span class="kpi-value" style="color: var(--secondary-color);">TRL 9</span>
+                            <span class="kpi-sub">Prontidão para Escala</span>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive" style="max-width: 850px; margin: 0 auto;">
+                        <table class="finance-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 50%;">Rubrica / Item de Investimento</th>
+                                    <th class="text-right">Valor (R$)</th>
+                                    <th class="text-center">%</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <strong>Infraestrutura Civil e Elétrica</strong><br>
+                                        <small class="text-muted">Obras, adequação de rede e instalação.</small>
+                                    </td>
+                                    <td class="text-right"><span id="det-infra">...</span></td>
+                                    <td class="text-center"><span id="det-infra-pct">...</span></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>Ativos da Frota (EVs + Carregadores)</strong><br>
+                                        <small class="text-muted">Aquisição dos veículos e estações de carga.</small>
+                                    </td>
+                                    <td class="text-right"><span id="det-ativos">...</span></td>
+                                    <td class="text-center"><span id="det-ativos-pct">...</span></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>Capital Humano (Bolsas P&D)</strong><br>
+                                        <small class="text-muted">Equipe de pesquisa e alunos (30 meses).</small>
+                                    </td>
+                                    <td class="text-right"><span id="det-bolsas">...</span></td>
+                                    <td class="text-center"><span id="det-bolsas-pct">...</span></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>Tecnologia e Softwares</strong><br>
+                                        <small class="text-muted">Licenças, nuvem e insumos de TI.</small>
+                                    </td>
+                                    <td class="text-right"><span id="det-soft">...</span></td>
+                                    <td class="text-center"><span id="det-soft-pct">...</span></td>
+                                </tr>
+                                <tr class="table-total" style="background-color: #e8f5e9;">
+                                    <td style="color: var(--primary-dark);"><strong>TOTAL GERAL</strong></td>
+                                    <td class="text-right" style="color: var(--primary-dark); font-size: 1.1rem;">
+                                        <strong id="det-total-final">...</strong>
+                                    </td>
+                                    <td class="text-center"><strong>100%</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="text-muted text-center mt-3" style="font-size: 0.85rem;">
+                            <em>* Valores calculados automaticamente com base na premissa de 2 Veículos.</em>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="cta-wrapper">
+                    <h3 class="final-quote">
+                        "Transformando 30 meses de execução em um <br>
+                        <strong>legado permanente</strong> de eficiência e educação."
+                    </h3>
+
+                    <a href="index.html#contato" class="btn btn-primary btn-lg custom-shadow">
+                        Apoiar este Projeto Estratégico
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-text">
+                <p>&copy; 2025 <strong>Projeto Eletroposto Solar</strong></p>
+                <p class="footer-subtext">Desenvolvido com foco em Eficiência Energética e Inovação para o Setor
+                    Elétrico.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/financeiro.js"></script>
+</body>
+
+</html>
