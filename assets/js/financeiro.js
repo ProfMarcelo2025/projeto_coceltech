@@ -13,7 +13,7 @@ const DATA = {
     
     // --- CENÁRIO 1: VEÍCULO A COMBUSTÃO (VUC) ---
     vuc_preco_unit: 78690.00,
-    vuc_combustivel_ano: 15000.00,
+    vuc_combustivel_ano: 4712.00,
     vuc_manutencao_ano: 3500.00,
     vuc_depreciacao: 0.25,
 
@@ -29,6 +29,20 @@ const DATA = {
     capex_bolsas: 300000.00,
     capex_software: 70000.00,
 };
+
+// Função de processamento de dados (Lógica de Negócio)
+function calcularResultadosAmbientais() {
+    const litros_ano_total = (DATA.vuc_combustivel_ano / DATA.preco_gasolina_medio) * DATA.qtd_veiculos;
+    const co2_total_ton = (litros_ano_total * DATA.fator_emissao_gasolina * DATA.periodo_anos) / 1000;
+    const arvores = Math.round(co2_total_ton * 7); 
+    const km_total = (DATA.qtd_veiculos * 1000 * 12 * DATA.periodo_anos); // 1000km/mês
+
+    return {
+        co2: co2_total_ton,
+        arvores: arvores,
+        km: km_total
+    };
+}
 
 document.addEventListener("DOMContentLoaded", function() {
 
